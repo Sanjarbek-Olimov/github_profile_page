@@ -174,7 +174,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       ],
                     ),
                   ),
-                  const SizedBox(height: 10,),
+                  const SizedBox(height: 1,),
                   Container(
                     color: Colors.white,
                     child: Column(
@@ -271,8 +271,8 @@ class _ProfilePageState extends State<ProfilePage> {
             borderRadius: BorderRadius.circular(5)
           ),
         ),
-        title: Text(name, style: TextStyle(fontSize: 20),),
-        trailing: Text(number.toString(),style: TextStyle(fontSize: 20),),
+        title: Text(name, style: const TextStyle(fontSize: 20),),
+        trailing: Text(number.toString(),style: const TextStyle(fontSize: 20),),
       ),
     );
   }
