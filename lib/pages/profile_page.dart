@@ -44,9 +44,10 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey.shade300,
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.white,
         actions: [
           IconButton(
               onPressed: () {},
@@ -70,6 +71,7 @@ class _ProfilePageState extends State<ProfilePage> {
               child: Column(
                 children: [
                   Container(
+                    color: Colors.white,
                     padding: const EdgeInsets.only(bottom: 30),
                     child: Column(
                       children: [
@@ -144,31 +146,45 @@ class _ProfilePageState extends State<ProfilePage> {
                     height: 10,
                     thickness: 15,
                   ),
-                  const ListTile(
-                    leading: Icon(
-                      Icons.star_border,
-                      size: 35,
-                    ),
-                    horizontalTitleGap: 10,
-                    title: Text(
-                      "Popular",
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  Container(
+                    color: Colors.white,
+                    child: Column(
+                      children: [
+                        const ListTile(
+                          leading: Icon(
+                            Icons.star_border,
+                            size: 35,
+                          ),
+                          horizontalTitleGap: 10,
+                          title: Text(
+                            "Popular",
+                            style:
+                            TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 170,
+                          child: ListView.builder(
+                              scrollDirection: Axis.horizontal,
+                              itemCount: 5,
+                              itemBuilder: (context, index) {
+                                return _popularRepos(repo[index]);
+                              }),
+                        ),
+                      ],
                     ),
                   ),
-                  SizedBox(
-                    height: 180,
-                    child: ListView.builder(
-                        scrollDirection: Axis.horizontal,
-                        itemCount: 5,
-                        itemBuilder: (context, index) {
-                          return _popularRepos(repo[index]);
-                        }),
-                  ),
-                  const Divider(),
-                  _profileInfos(Icons.book_outlined, Colors.black.withOpacity(0.8), "Repositories", user.publicRepos!),
-                  _profileInfos(Icons.home_work_outlined, Colors.orange, "Organizations", 0),
-                  _profileInfos(Icons.star_border, Colors.yellow, "Starred", 0),
+                  const SizedBox(height: 10,),
+                  Container(
+                    color: Colors.white,
+                    child: Column(
+                      children: [
+                        _profileInfos(Icons.book_outlined, Colors.black.withOpacity(0.8), "Repositories", user.publicRepos!),
+                        _profileInfos(Icons.home_work_outlined, Colors.orange, "Organizations", 0),
+                        _profileInfos(Icons.star_border, Colors.yellow, "Starred", 0),
+                      ],
+                    ),
+                  )
                 ],
               ),
             ),
