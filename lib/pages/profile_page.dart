@@ -168,7 +168,7 @@ class _ProfilePageState extends State<ProfilePage> {
                               scrollDirection: Axis.horizontal,
                               itemCount: 5,
                               itemBuilder: (context, index) {
-                                return _popularRepos(repo[index]);
+                                return _popularRepos(repo[index], index);
                               }),
                         ),
                       ],
@@ -191,10 +191,10 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 
-  Widget _popularRepos(Repos repo) {
+  Widget _popularRepos(Repos repo, int index) {
     return Container(
       width: MediaQuery.of(context).size.width * 0.75,
-      margin: const EdgeInsets.only(left: 20, bottom: 10),
+      margin: index!=4?const EdgeInsets.only(left: 20, bottom: 10):const EdgeInsets.only(left: 20, bottom: 10, right: 20),
       padding: const EdgeInsets.all(15),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(7.5),
